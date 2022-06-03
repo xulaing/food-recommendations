@@ -1,0 +1,193 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/seasoning_style.css') }}">
+  <link href="{{ url_for('static',filename='stylesheets/pretty-checkbox.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+  <title>LULU & CECE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
+    integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
+    crossorigin="anonymous"></script>
+
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <!-- add emoji -->
+        <h1> LULU&CECE </h1>
+        <div class="tagline"> Le Netflix du goût 🥑</div>
+
+      </div>
+      <nav class="sub-nav tagline">
+        <a href="/">Nouvel utilisateur</a>
+      </nav>
+    </header>
+    <!-- END OF HEADER -->
+
+    <!-- MAIN CONTAINER -->
+    <section class="main-container">
+      <div class="location" id="home">
+        <!-- add video link after -->
+        <!-- remove most popular, focus on recommender algos -->
+        <!-- <h2 id="popular">Most Popular 🔥</h2>
+          <div class="box recipe">
+            <a> src="{{ most_popular[1][0]}}">
+            {{ most_popular[0][0] }}</a>
+            <a> src="{{ most_popular[1][1]}}">
+            {{ most_popular[0][1] }}</a>
+            <a> src="{{ most_popular[1][2]}}">
+            {{ most_popular[0][2] }}</a>
+            <a> src="{{ most_popular[1][3]}}">
+            {{ most_popular[0][3] }}</a>
+            <a> src="{{ most_popular[1][4]}}">
+            {{ most_popular[0][4] }}</a>
+            <a> src="{{ most_popular[1][5]}}">
+            {{ most_popular[0][5] }}</a>
+            <a> src="{{ most_popular[1][6]}}">
+            {{ most_popular[0][6] }}</a>
+            <a> src="{{ most_popular[1][7]}}">
+            {{ most_popular[0][7] }}</a>
+            <a> src="{{ most_popular[1][8]}}">
+            {{ most_popular[0][8] }}</a>
+            <a> src="{{ most_popular[1][9]}}">
+            {{ most_popular[0][9] }}</a>
+            <a> src="{{ most_popular[1][10]}}">
+            {{ most_popular[0][10] }}</a>
+            <a> src="{{ most_popular[1][11]}}">
+            {{ most_popular[0][11] }}</a>
+          </div> -->
+        <br>
+        <br>
+
+        <h2 id="picks">Top du top : La sélection du chef 👨🏻‍🍳</h2>
+        <div class="box recipe">
+          <a>
+            {{hybrid_recommended [0][0]}}</a>
+          <a>
+            {{hybrid_recommended [0][1]}}</a>
+          <a>
+            {{hybrid_recommended [0][2]}}</a>
+          <a>
+            {{hybrid_recommended [0][3]}}</a>
+          <a>
+            {{hybrid_recommended [0][4]}}</a>
+          <a>
+            {{hybrid_recommended [0][5]}}</a>
+        </div>
+
+        <h2 id="people">Les personnes avec des goûts similaires ont aussi aimé !</h2>
+        <div class="box recipe">
+          <a>
+            {{user_recommended [0][0]}}</a>
+          <a>
+            {{user_recommended [0][1]}}</a>
+          <a>
+            {{user_recommended [0][2]}}</a>
+          <a>
+            {{user_recommended [0][3]}}</a>
+          <a>
+            {{user_recommended [0][4]}}</a>
+          <a>
+            {{user_recommended [0][5]}}</a>
+        </div>
+
+        <!-- Map the emoji to the category -->
+        <h2 id="category">Parce que vous avez aimé {{title}} </h2>
+        <div class="box recipe">
+          <a>
+            {{item_recommended [0][0]}}</a>
+          <a>
+            {{item_recommended [0][1]}}</a>
+          <a>
+            {{item_recommended [0][2]}}</a>
+          <a>
+            {{item_recommended [0][3]}}</a>
+          <a>
+            {{item_recommended [0][4]}}</a>
+          <a>
+            {{item_recommended [0][5]}}</a>
+        </div>
+        <!-- category 1 -->
+        <h2 id="category"> {{ cats[0][0][0] }} </h2>
+        <div class="box recipe">
+          <a>
+            {{ cats[1][0][0] }}</a>
+          <a>
+            {{ cats[1][0][1] }}</a>
+          <a>
+            {{ cats[1][0][2] }}</a>
+          <a>
+            {{ cats[1][0][3] }}</a>
+          <a>
+            {{ cats[1][0][4] }}</a>
+          <a>
+            {{ cats[1][0][5] }}</a>
+        </div>
+        <!-- category2 -->
+        <h2 id="category">{{ cats[0][1][0] }}</h2>
+        <div class="box recipe">
+          <a>
+            {{ cats[1][1][0] }}</a>
+          <a>
+            {{ cats[1][1][1] }}</a>
+          <a>
+            {{ cats[1][1][2] }}</a>
+          <a>
+            {{ cats[1][1][3] }}</a>
+          <a>
+            {{ cats[1][1][4] }}</a>
+          <a>
+            {{ cats[1][1][5] }}</a>
+        </div>
+
+        <h2 id="quiz_results">A refaire 🍳 </h2>
+        <!-- works even when <6 are selected -->
+        <div class="box recipe">
+          <a>
+            {{quiz_results [0][0]}}</a>
+          <a>
+            {{quiz_results [0][1]}}</a>
+          <a>
+            {{quiz_results [0][2]}}</a>
+          <a>
+            {{quiz_results [0][3]}}</a>
+          <a>
+            {{quiz_results [0][4]}}</a>
+          <a>
+            {{quiz_results [0][5]}}</a>
+        </div>
+
+        <h2 id="tastebreakers">A découvrir </h2>
+
+        <p class="recipe"> Pimentez vos papilles avec des recettes surprenantes !</p>
+        <div class="box recipe">
+          <a>
+            {{ tastebreaker [0][0]}}</a>
+          <a>
+            {{ tastebreaker [0][1]}}</a>
+          <a>
+            {{ tastebreaker [0][2]}}</a>
+          <a>
+            {{ tastebreaker [0][3]}}</a>
+          <a>
+            {{ tastebreaker [0][4]}}</a>
+          <a>
+            {{ tastebreaker [0][5]}}</a>
+        </div>
+
+        <!-- END OF MAIN CONTAINER -->
+      </div>
+
+</body>
+
+</html>
